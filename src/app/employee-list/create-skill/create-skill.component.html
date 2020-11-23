@@ -1,0 +1,88 @@
+
+<h3 class="header"> <strong> Add skill Details </strong> </h3>
+
+<div class="container p-5 bg-light">
+
+  <form name="form" #f= "ngForm">
+
+    <div class="row"  *ngIf="showMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+            <strong>Insertion Success!</strong> Thank You For Your Time.
+        </p>
+      </div>
+    </div>
+
+  <div class="row form-group">
+    <div class="col-2">
+        <label for="sid"> Skill Id </label>
+    </div>
+    <div class="col-7">
+        <input type="number" pattern="'^[0-9]{3}$[0-9]*" id="sid" required #vn="ngModel" class="form-control" name="skillId"
+        [(ngModel)]="skill.skillId" placeholder="Enter skill Id">
+        <div *ngIf="vn.touched">
+            <div *ngIf="vn.errors && (vn.invalid)">
+              <small class="text-danger" *ngIf="vn.errors.required">Skill Id is required</small>
+              <small class="text-danger" *ngIf="vn.errors.pattern">Only numeric allowed with minimum 3 digit</small>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="row form-group">
+    <div class="col-2">
+        <label for="sName"> skill Name </label>
+    </div>
+    <div class="col-7">
+        <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="sName" required #vn="ngModel" class="form-control" name="skillName"
+        [(ngModel)]="skill.skillName" placeholder="Enter skill Name">
+        <div *ngIf="vn.touched">
+            <div *ngIf="vn.errors && (vn.invalid)">
+              <small class="text-danger" *ngIf="vn.errors.required">Name is required</small>
+              <small class="text-danger" *ngIf="vn.errors.pattern">Only alphabets allowed with minimum 2 chars</small>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-2">
+        <label for="sDetails"> Details </label>
+    </div>
+    <div class="col-7">
+        <input type="text" pattern="[a-zA-Z]{5}[A-Za-z\s]*" id="sDetails" required #vn="ngModel" class="form-control" name="details"
+        [(ngModel)]="skill.details" placeholder="Enter skill Details" >
+        <div *ngIf="vn.touched">
+            <div *ngIf="vn.errors && (vn.invalid)">
+              <small class="text-danger" *ngIf="vn.errors.required">details is required</small>
+              <small class="text-danger" *ngIf="vn.errors.pattern">Only alphabets allowed with minimum 2 chars</small>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-2">
+        <label for="sEmp"> Employee Id </label>
+    </div>
+    <div class="col-7">
+        <input type="number" pattern="'^[0-9]{1}$[0-9]*" id="sEmp" required #vn="ngModel" class="form-control" name="empId"
+        [(ngModel)]="skill.empId" placeholder="Enter employee Id same as Employee Details">
+        <div *ngIf="vn.touched">
+            <div *ngIf="vn.errors && (vn.invalid)">
+              <small class="text-danger" *ngIf="vn.errors.required">emp Id is required</small>
+              <small class="text-danger" *ngIf="vn.errors.pattern">Only numeric allowed with minimum 1 digit</small>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="save()" class="btn btn-primary btn-md">Submit</button>
+
+  </div>
+
+ </form>
+
+</div>

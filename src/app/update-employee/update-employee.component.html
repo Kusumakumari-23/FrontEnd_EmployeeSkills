@@ -1,0 +1,114 @@
+
+<h3> Update Employee Details </h3>
+
+<div class="container p-5 bg-light">
+
+ <form name="form" (ngSubmit)= "save()" #f= "ngForm">
+
+  <div class="row form-group">
+    <div class="col-2">
+        <label for="eName">FirstName </label>
+    </div>
+    <div class="col-7">
+        <input type="text" pattern="[a-zA-Z]{3}[A-Za-z\s]*" id="eName" required #vn="ngModel" class="form-control" name="FirstName"
+        [(ngModel)]="employee.firstName" placeholder="Enter employee's First Name">
+        <div *ngIf="vn.touched">
+            <div *ngIf="vn.errors && (vn.invalid)">
+              <small class="text-danger" *ngIf="vn.errors.required">Name is required</small>
+              <small class="text-danger" *ngIf="vn.errors.pattern">Only alphabets allowed with minimum 3 chars</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-2">
+      <label for="elName"> LastName </label>
+  </div>
+  <div class="col-7">
+      <input type="text" pattern="[a-zA-Z]{3}[A-Za-z\s]*" id="elName" required #vn="ngModel" class="form-control" name="LastName"
+      [(ngModel)]="employee.lastName" placeholder="Enter employee's lastName">
+      <div *ngIf="vn.touched">
+          <div *ngIf="vn.errors && (vn.invalid)">
+            <small class="text-danger" *ngIf="vn.errors.required">Name is required</small>
+            <small class="text-danger" *ngIf="vn.errors.pattern">Only alphabets allowed with minimum 3 chars</small>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-2">
+      <label for="hireDate"> Hire Date </label>
+  </div>
+  <div class="col-7">
+      <input type="date" pattern="/^(0?[1-9]|1[0-2])\/(0?[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" id="hireDate" required  #hireDate="ngModel" class="form-control" name="HireDate"
+      [(ngModel)]="employee.hireDate" placeholder="Enter Hire Date of employee">
+      <div *ngIf="hireDate.touched">
+          <div *ngIf="hireDate.errors && (hireDate.invalid)">
+            <small class="text-danger" *ngIf="hireDate.errors.required">Hire Date is required</small>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-2">
+      <label for="eCity"> City </label>
+  </div>
+  <div class="col-7">
+      <input type="text" pattern="[a-zA-Z]{2}[A-Za-z\s]*" id="eCity" required #vn="ngModel" class="form-control" name="LastName"
+      [(ngModel)]="employee.city" placeholder="Enter employee's lastName">
+      <div *ngIf="vn.touched">
+          <div *ngIf="vn.errors && (vn.invalid)">
+            <small class="text-danger" *ngIf="vn.errors.required">city is required</small>
+            <small class="text-danger" *ngIf="vn.errors.pattern">Only alphabets allowed with minimum 2 chars</small>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-2">
+      <label for="eEmail">Email Id</label>
+  </div>
+  <div class="col-7">
+      <input type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="eEmail" required #email="ngModel" class="form-control" name="EmployeeEmailId"
+      [(ngModel)]="employee.email" placeholder="Enter employee's EmailId">
+      <div *ngIf="email.touched">
+          <div *ngIf="email.errors && (email.invalid)">
+            <small class="text-danger" *ngIf="email.errors.required">Email Id is required</small>
+            <small class="text-danger" *ngIf="email.errors.pattern">Invalid email Id</small>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-2">
+      <label for="eMobile"> Mobile Number </label>
+  </div>
+  <div class="col-7">
+      <input type="text" pattern="[1-9]{1}[0-9]{9}" id="eMobile" required maxlength="10" #mobile="ngModel" class="form-control" name="phoneNumber"
+      [(ngModel)]="employee.phoneNo" placeholder="Enter Mobile number">
+      <div *ngIf="mobile.touched">
+          <div *ngIf="mobile.errors && (mobile.invalid)">
+            <small class="text-danger" *ngIf="mobile.errors.required">Mobile number is required</small>
+            <small class="text-danger" *ngIf="mobile.errors.pattern">Must not start with 0 and have exactly 10 digits</small>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Skill Form -->
+
+<!-- <app-create-skill></app-create-skill> -->
+
+<div>
+  <button (click)="save()" class="btn btn-primary btn-md"> Update </button>
+
+</div>
+ </form>
+
+</div>
+

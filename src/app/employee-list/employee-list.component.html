@@ -1,0 +1,33 @@
+<div>
+    <h3 class="header"> Employee List </h3>
+
+    <!-- <div class="row">
+      <input type="text" placeholder="Search Here" [(ngModel)]= "searchText" />
+
+    </div> -->
+    <table class="table">
+       <thead>
+            <tr>
+              <th> FirstName </th>
+              <th> LastName </th>
+            </tr>
+       </thead>
+
+       <tbody>
+         <tr *ngFor= "let c of employees | paginate: {itemsPerPage: 5, currentPage:p}">
+
+            <td> {{c.firstName}} </td>
+            <td> {{c.lastName}} </td>
+
+            <td> <button class="btn btn-success btn-sm"  (click)="setEmployee(c)" [routerLink]="'/empDetails/'+c.empId">Employee Details</button> </td>
+            <td> <button (click)="deleteEmployeeAndSkill(c.empId)" class="btn btn-danger btn-delete">Delete</button> </td>
+
+            <!-- <button class="btn btn-success btn-sm"  (click)="employeeDetails(c.empId)" [routerLink]="'/empDetails/'+c.empId">Employee Details</button> -->
+          </tr>
+       </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p= $event"></pagination-controls>
+
+</div>
+

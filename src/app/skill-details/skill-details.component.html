@@ -1,0 +1,26 @@
+<p> Skills of the employee </p>
+
+<!-- <div class="card" *ngIf="skill==null">
+  <p class="card-text">No Skills Found</p>
+</div> -->
+
+<div class="container" >
+
+  <div *ngIf="skill">
+    <div>
+      <label><b>Skill Id: </b></label> {{skill.skillId}}
+    </div>
+    <div>
+      <label><b>Skill Name: </b></label> {{skill.skillName}}
+    </div>
+    <div>
+      <label><b>Details: </b></label> {{skill.details}}
+    </div>
+    <div>
+      <label><b>Employee Id: </b></label> {{skill.empId}}
+    </div>
+
+    <button class="btn btn-warning btn-sm ml-1" [routerLink]="'/editSkill/'+skill.empId"> Update Skill Details </button>
+  </div>
+
+  </div>

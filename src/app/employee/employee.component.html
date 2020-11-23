@@ -1,0 +1,74 @@
+<div class="container">
+
+  <h2 class="header"> Employee and Skill Details of {{employee.firstName}} </h2>
+
+
+  <div *ngIf="employee">
+    <div>
+      <label><b>Employee Id: </b></label> {{employee.empId}}
+    </div>
+    <div>
+      <label><b>First Name: </b></label> {{employee.firstName}}
+    </div>
+    <div>
+      <label><b>Last Name: </b></label> {{employee.lastName}}
+    </div>
+    <div>
+      <label><b>Hire Date: </b></label> {{employee.hireDate}}
+    </div>
+    <div>
+      <label><b>City: </b></label> {{employee.city}}
+    </div>
+    <div>
+      <label><b>Email Id: </b></label> {{employee.email}}
+    </div>
+    <div>
+      <label><b>Mobile Number: </b></label> {{employee.phoneNo}}
+    </div>
+
+    <button class="btn btn-warning btn-sm ml-1" [routerLink]="'/edit/'+employee.empId "> Update Employee Details </button>
+    <!-- <button (click)="deleteEmployee(employee.empId)" class="btn btn-danger btn-delete">Delete</button> -->
+
+  </div>
+
+
+  <app-skill-details></app-skill-details>
+
+
+  <!-- <button class="btn btn-warning btn-sm ml-1" [routerLink]="'/edit/'+employee.empId "> Update Employee Details </button> -->
+
+    <!-- <table class= "table" border="2">
+
+    <thead>
+      <tr>
+        <th> Employee Id </th>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Hire Date </th>
+        <th> City </th>
+        <th> Email </th>
+        <th> Phone Number </th>
+      </tr>
+      <h3> after table </h3>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor= "let c of employees">
+        <td> {{c.empId}} </td>
+        <td> {{c.firstName}} </td>
+        <td> {{c.lastName}} </td>
+        <td> {{c.hireDate}} </td>
+        <td> {{c.city}} </td>
+        <td> {{c.email}} </td>
+        <td> {{c.phoneNo}} </td>
+
+      </tr>
+
+    </tbody>
+
+
+  </table> -->
+
+
+</div>
